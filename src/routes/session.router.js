@@ -76,7 +76,7 @@ router.get("/logout", (req, res) => {
         if (error) {
             return res.send({ status: "Error", message: `Error al borrar la sesion ${error}`})
         } else {
-            res.status(200).send( { status: "Success", message: "Sesion eliminada con exito"})
+            res.status(200).send( { status: "success", message: "Sesion eliminada con exito"})
         }
     })
 })

@@ -8,6 +8,8 @@ router.get("/products", async (req, res) => {
   if (!req.session?.user) {
     return res.redirect("/login")
   }  
+
+  const user = req.session.user
   
   try {
         const {
@@ -44,7 +46,8 @@ router.get("/products", async (req, res) => {
             prevPage,
             nextPage,
             prevLink,
-            nextLink
+            nextLink,
+            user
         })
 
     } catch (error) {

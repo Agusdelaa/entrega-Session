@@ -1,3 +1,5 @@
+// import Swal from "sweetalert2";
+
 let cartId = sessionStorage.getItem("cartId")
 
  async function createCart () {
@@ -43,4 +45,22 @@ async function viewCart() {
     } catch (error) {
         alert(error.message || 'Error al ver el carrito')
     }
+}
+
+async function logout() {
+
+    await fetch("/api/session/logout")
+    .then((res) => res.json())
+    .then((data) => {
+        if (data.status === "success") {
+            window.location.href = "/login"
+        }
+    })
+    .catch((error) => {
+        Swal.fire({
+            title: "Error al desloguearse" ,
+            icon: "error" ,
+            text: error
+        })
+    })
 }
